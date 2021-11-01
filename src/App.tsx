@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { IPlayer } from "./interfaces/IPlayers";
+import { playerService } from "./services/playerService";
 
 function App() {
+  const [players, setPlayers] = useState<IPlayer[]>([
+    { id: "jup", firstname: "Ola", lastname: "Nordmann" },
+  ]);
+
+  useEffect(() => {
+    getPlayers();
+  }, []);
+
+  const getPlayers = async () => {
+    const result = await playerService.getAllPlayers();
+    setPlayers(result);
+  };
+
+  const createPlayerList = () => {
+    return players.map((player: IPlayer, key: number) => {
+      return (
+        <h4 key={key}>
+          {player.firstname} {player.lastname}
+        </h4>
+      );
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Liverpool jup</h1>
+      {createPlayerList()}
     </div>
   );
 }
