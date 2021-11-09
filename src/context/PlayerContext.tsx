@@ -14,6 +14,7 @@ export const PlayerProvider: FC = ({ children }) => {
       age: 22,
       country: "Norway",
       position: "Striker",
+      image: "",
     },
   ]);
 

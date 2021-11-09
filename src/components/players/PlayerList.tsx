@@ -11,9 +11,15 @@ const PlayerList: FC = () => {
 
     return players.map((player: IPlayer, key) => {
       return (
-        <h3 key={key}>
-          {player.firstname} {player.lastname}
-        </h3>
+        <>
+          <h3 key={key}>
+            {player.firstname} {player.lastname}
+          </h3>
+          <img
+            src={`https://localhost:5001/images/${player.image}`}
+            alt={player.firstname}
+          />
+        </>
       );
     });
   };

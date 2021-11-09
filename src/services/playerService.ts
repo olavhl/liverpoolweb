@@ -3,6 +3,8 @@ import { IPlayer } from "../interfaces/IPlayers";
 
 export const playerService = (function () {
   const urlToLiverpoolStatsController = "https://localhost:5001/liverpoolStats";
+  const urlToImageUploadController =
+    "https://localhost:5001/imageUpload/SaveImage";
 
   const getAllPlayers = async () => {
     const result = await axios.get<IPlayer[]>(urlToLiverpoolStatsController);
@@ -10,9 +12,14 @@ export const playerService = (function () {
     return result["data"];
   };
 
-  const postNewPlayer = async (newPlayer: IPlayer) => {
-    const result = await axios.post(urlToLiverpoolStatsController, newPlayer);
-    return result.data as IPlayer;
+  const postNewPlayer = (newPlayer: IPlayer, image: File) => {
+    axios.post(urlToLiverpoolStatsController, newPlayer);
+    axios({
+      url: urlToImageUploadController,
+      method: "POST",
+      data: image,
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   };
 
   return {
