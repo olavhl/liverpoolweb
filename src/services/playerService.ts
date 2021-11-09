@@ -10,7 +10,13 @@ export const playerService = (function () {
     return result["data"];
   };
 
+  const postNewPlayer = async (newPlayer: IPlayer) => {
+    const result = await axios.post(urlToLiverpoolStatsController, newPlayer);
+    return result.data as IPlayer;
+  };
+
   return {
     getAllPlayers,
+    postNewPlayer,
   };
 })();
