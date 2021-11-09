@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from "react";
-import PlayerList from "../components/shared/players/PlayerList";
-import { PlayerProvider } from "../context/PlayerContext";
-import { IPlayer } from "../interfaces/IPlayers";
-import { playerService } from "../services/playerService";
+import PlayerList from "../components/players/PlayerList";
 
 const Home = () => {
   return (
