@@ -1,7 +1,10 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, useContext, useState } from "react";
+import { PlayerContext } from "../../context/PlayerContext";
 import { IPlayer } from "../../interfaces/IPlayers";
+import { PlayerContextType } from "../../types/PlayerContextType";
 
 const CreatePlayerForm: FC = () => {
+  const { addPlayer } = useContext(PlayerContext) as PlayerContextType;
   const [newPlayer, setNewPlayer] = useState<IPlayer>({
     firstname: "",
     lastname: "",
@@ -32,12 +35,18 @@ const CreatePlayerForm: FC = () => {
         setNewPlayer({ ...newPlayer, position: event.target.value });
         break;
       case "image":
+        let { files } = event.target;
+        if (files) {
+          setNewPlayer({ ...newPlayer, image: files[0].name });
+          setNewImage(files[0]);
+        }
+
         break;
     }
   };
 
   const postNewPlayer = () => {
-    console.log(newPlayer);
+    addPlayer(newPlayer, newImage as File);
   };
 
   return (

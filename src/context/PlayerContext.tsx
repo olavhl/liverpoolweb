@@ -27,9 +27,14 @@ export const PlayerProvider: FC = ({ children }) => {
     setPlayers(result);
   };
 
+  const addPlayer = async (newPlayer: IPlayer, image: File) => {
+    playerService.postNewPlayer(newPlayer, image);
+    setPlayers([...players, newPlayer]);
+  };
+
   return (
     <>
-      <PlayerContext.Provider value={{ players }}>
+      <PlayerContext.Provider value={{ players, addPlayer }}>
         {children}
       </PlayerContext.Provider>
     </>

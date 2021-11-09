@@ -13,11 +13,14 @@ export const playerService = (function () {
   };
 
   const postNewPlayer = (newPlayer: IPlayer, image: File) => {
+    let formData = new FormData();
+    formData.append("file", image);
+
     axios.post(urlToLiverpoolStatsController, newPlayer);
     axios({
       url: urlToImageUploadController,
       method: "POST",
-      data: image,
+      data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
   };
