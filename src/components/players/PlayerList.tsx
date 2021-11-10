@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import { FC, useContext } from "react";
 import { PlayerContext } from "../../context/PlayerContext";
 import { IPlayer } from "../../interfaces/IPlayers";
 import { PlayerContextType } from "../../types/PlayerContextType";
