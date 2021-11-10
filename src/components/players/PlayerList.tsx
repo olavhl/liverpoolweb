@@ -56,18 +56,27 @@ const PlayerList: FC = () => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            className="modal-save-btn modal-btn"
-            onClick={handleCloseModal}
-          >
-            Save Changes
-          </Button>
-          <Button
-            className="modal-close-btn modal-btn"
-            onClick={handleCloseModal}
-          >
-            Close
-          </Button>
+          <div className="modal-btn-container">
+            <Button
+              className="modal-delete-btn modal-btn"
+              onClick={handleCloseModal}
+            >
+              Delete Player
+            </Button>
+
+            <Button
+              className="modal-save-btn modal-btn"
+              onClick={handleCloseModal}
+            >
+              Save Changes
+            </Button>
+            <Button
+              className="modal-close-btn modal-btn"
+              onClick={handleCloseModal}
+            >
+              Close
+            </Button>
+          </div>
         </Modal.Footer>
       </Modal>
     );

@@ -18,43 +18,70 @@
     }
   }
 
-  .modal-btn {
-    font-weight: bold;
-    border: 0;
-    -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
-    box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
-    border-radius: 5px;
-    padding: 5px 15px;
-  }
+  .modal-btn-container {
+    width: 55vw;
+    display: flex;
 
-  .modal-save-btn {
-    background-color: #096ed3;
-    color: white;
-
-    &:hover {
-      background-color: #3f9bf7;
+    .modal-btn {
+      font-weight: bold;
+      width: 150px;
+      border: 0;
+      -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+      box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+      border-radius: 5px;
+      padding: 5px 15px;
     }
 
-    &:active {
-      background-color: #3f9bf7;
-      -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
-      box-shadow: inset 5px 5px 12px -7px #000000;
+    .modal-save-btn {
+      background-color: #096ed3;
+      color: white;
+      margin-left: auto;
+      margin-right: 10px;
+
+      &:hover {
+        background-color: #3f9bf7;
+      }
+
+      &:active {
+        background-color: #3f9bf7;
+        -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+        box-shadow: inset 5px 5px 12px -7px #000000;
+      }
     }
-  }
 
-  .modal-close-btn {
-    background-color: white;
-    color: #212529;
-    border: 0.5px solid #212529;
+    .modal-close-btn {
+      background-color: white;
+      color: #212529;
+      align-items: end;
+      border: 0.5px solid #212529;
 
-    &:hover {
-      background: rgb(224, 224, 224);
+      &:hover {
+        background: rgb(224, 224, 224);
+      }
+
+      &:active {
+        background: rgb(224, 224, 224);
+        -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+        box-shadow: inset 5px 5px 12px -7px #000000;
+      }
     }
 
-    &:active {
-      background: rgb(224, 224, 224);
-      -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
-      box-shadow: inset 5px 5px 12px -7px #000000;
+    .modal-delete-btn {
+      background-color: white;
+      border: 0.5px solid #db2834;
+      color: #db2834;
+
+      &:hover {
+        background: #db2834;
+        color: white;
+      }
+
+      &:active {
+        background: #db2834;
+        color: white;
+        -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+        box-shadow: inset 5px 5px 12px -7px #000000;
+      }
     }
   }
 }

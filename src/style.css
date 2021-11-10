@@ -31,8 +31,16 @@
           flex-direction: column;
 }
 
-.modal-container .modal-btn {
+.modal-container .modal-btn-container {
+  width: 55vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal-container .modal-btn-container .modal-btn {
   font-weight: bold;
+  width: 150px;
   border: 0;
   -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
   box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
@@ -40,33 +48,56 @@
   padding: 5px 15px;
 }
 
-.modal-container .modal-save-btn {
+.modal-container .modal-btn-container .modal-save-btn {
   background-color: #096ed3;
   color: white;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
-.modal-container .modal-save-btn:hover {
+.modal-container .modal-btn-container .modal-save-btn:hover {
   background-color: #3f9bf7;
 }
 
-.modal-container .modal-save-btn:active {
+.modal-container .modal-btn-container .modal-save-btn:active {
   background-color: #3f9bf7;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
 
-.modal-container .modal-close-btn {
+.modal-container .modal-btn-container .modal-close-btn {
   background-color: white;
   color: #212529;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   border: 0.5px solid #212529;
 }
 
-.modal-container .modal-close-btn:hover {
+.modal-container .modal-btn-container .modal-close-btn:hover {
   background: #e0e0e0;
 }
 
-.modal-container .modal-close-btn:active {
+.modal-container .modal-btn-container .modal-close-btn:active {
   background: #e0e0e0;
+  -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+  box-shadow: inset 5px 5px 12px -7px #000000;
+}
+
+.modal-container .modal-btn-container .modal-delete-btn {
+  background-color: white;
+  border: 0.5px solid #db2834;
+  color: #db2834;
+}
+
+.modal-container .modal-btn-container .modal-delete-btn:hover {
+  background: #db2834;
+  color: white;
+}
+
+.modal-container .modal-btn-container .modal-delete-btn:active {
+  background: #db2834;
+  color: white;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
