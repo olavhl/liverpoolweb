@@ -1,3 +1,4 @@
+import Button from "@restart/ui/esm/Button";
 import { FC, useContext, useState } from "react";
 import { Col, Modal, Row } from "react-bootstrap";
 import { PlayerContext } from "../../context/PlayerContext";
@@ -53,6 +54,10 @@ const PlayerList: FC = () => {
             <input type="text" value={player.position} />
           </div>
         </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleCloseModal}>Save Changes</Button>
+          <Button onClick={handleCloseModal}>Close</Button>
+        </Modal.Footer>
       </Modal>
     );
   };
