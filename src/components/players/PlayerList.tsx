@@ -29,34 +29,49 @@ const PlayerList: FC = () => {
   const displayModal = (player: IPlayer) => {
     console.log("OK");
     return (
-      <Modal show={showModal} onHide={handleCloseModal}>
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        dialogClassName="modal-container"
+      >
         <Modal.Header closeButton>
           <Modal.Title>
             {player.firstname} {player.lastname}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-body">
           <img
             src={`https://localhost:5001/images/${player.image}`}
             alt={player.firstname}
           />
-          <div>
+          <div className="modal-text-container">
             <label>Name</label>
             <input
+              readOnly
               type="text"
               value={`${player.firstname} ${player.lastname}`}
             />
             <label>Age</label>
-            <input type="text" value={player.age} />
+            <input readOnly type="text" value={player.age} />
             <label>Country</label>
-            <input type="text" value={player.country} />
+            <input readOnly type="text" value={player.country} />
             <label>Position</label>
-            <input type="text" value={player.position} />
+            <input readOnly type="text" value={player.position} />
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleCloseModal}>Save Changes</Button>
-          <Button onClick={handleCloseModal}>Close</Button>
+          <Button
+            className="modal-save-btn modal-btn"
+            onClick={handleCloseModal}
+          >
+            Save Changes
+          </Button>
+          <Button
+            className="modal-close-btn modal-btn"
+            onClick={handleCloseModal}
+          >
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     );

@@ -1,0 +1,39 @@
+.modal-container {
+  width: 50vw;
+  max-width: 50vw;
+
+  min-width: 550px;
+
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    align-items: center;
+    justify-content: center;
+
+    .modal-text-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .modal-btn {
+    font-weight: bold;
+    border: 0;
+    -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+    box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    padding: 5px 15px;
+  }
+
+  .modal-save-btn {
+    background-color: #348ce4;
+    color: white;
+  }
+
+  .modal-close-btn {
+    background-color: white;
+    color: #212529;
+    border: 0.5px solid #212529;
+  }
+}
