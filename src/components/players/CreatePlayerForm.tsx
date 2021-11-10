@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  FC,
-  FormEvent,
-  SyntheticEvent,
-  useContext,
-  useState,
-} from "react";
+import { ChangeEvent, FC, SyntheticEvent, useContext, useState } from "react";
 import { Form } from "react-bootstrap";
 import { PlayerContext } from "../../context/PlayerContext";
 import { IPlayer } from "../../interfaces/IPlayers";
