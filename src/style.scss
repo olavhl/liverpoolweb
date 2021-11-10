@@ -46,6 +46,16 @@
     background-color: white;
     color: #212529;
     border: 0.5px solid #212529;
+
+    &:hover {
+      background: rgb(224, 224, 224);
+    }
+
+    &:active {
+      background: rgb(224, 224, 224);
+      -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+      box-shadow: inset 5px 5px 12px -7px #000000;
+    }
   }
 }
 
