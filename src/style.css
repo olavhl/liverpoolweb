@@ -50,4 +50,27 @@
   color: #212529;
   border: 0.5px solid #212529;
 }
+
+.cards {
+  margin-top: 20px;
+  -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+  box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+}
+
+.cards .card-title {
+  margin-top: 10px;
+}
+
+.cards .card-btn {
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: #348ce4;
+  color: white;
+  -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+  box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+}
 /*# sourceMappingURL=style.css.map */

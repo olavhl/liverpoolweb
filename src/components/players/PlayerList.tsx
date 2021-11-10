@@ -35,9 +35,7 @@ const PlayerList: FC = () => {
         dialogClassName="modal-container"
       >
         <Modal.Header closeButton>
-          <Modal.Title>
-            {player.firstname} {player.lastname}
-          </Modal.Title>
+          <Modal.Title>Edit Player</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           <img
@@ -45,12 +43,10 @@ const PlayerList: FC = () => {
             alt={player.firstname}
           />
           <div className="modal-text-container">
-            <label>Name</label>
-            <input
-              readOnly
-              type="text"
-              value={`${player.firstname} ${player.lastname}`}
-            />
+            <label>First Name</label>
+            <input readOnly type="text" value={player.firstname} />
+            <label>Last Name</label>
+            <input readOnly type="text" value={player.lastname} />
             <label>Age</label>
             <input readOnly type="text" value={player.age} />
             <label>Country</label>

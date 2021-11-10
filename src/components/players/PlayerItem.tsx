@@ -12,19 +12,30 @@ const PlayerItem: FC<PlayerProps> = ({ player, handleClick }: PlayerProps) => {
   const clickedElement = (player: IPlayer) => {
     handleClick(player);
   };
+
   return (
-    <Card>
+    <Card className="cards">
       <Card.Body>
         <Card.Img
           src={`https://localhost:5001/images/${player.image}`}
           alt={player.firstname}
           variant="top"
         />
-        <Card.Title>
+        <Card.Title className="card-title">
           {player.firstname} {player.lastname}
         </Card.Title>
-        <Button type="button" onClick={() => clickedElement(player)}>
-          OK
+        <Card.Text>
+          Age: {player.age} <br />
+          Country: {player.country} <br />
+          Position: {player.position}
+        </Card.Text>
+
+        <Button
+          className="card-btn"
+          type="button"
+          onClick={() => clickedElement(player)}
+        >
+          Edit Player
         </Button>
       </Card.Body>
     </Card>
