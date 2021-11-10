@@ -1,11 +1,12 @@
-import React from "react";
 import CreatePlayerForm from "../components/players/CreatePlayerForm";
 
 const CreatePlayerPage = () => {
   return (
-    <div>
+    <div className="create-player-container">
       <h1>Create players</h1>
-      <CreatePlayerForm />
+      <div className="form-container">
+        <CreatePlayerForm />
+      </div>
     </div>
   );
 };

@@ -60,8 +60,13 @@ const CreatePlayerForm: FC = () => {
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={postNewPlayer}>
-      <Form.Group>
+    <Form
+      className="form-create-player"
+      noValidate
+      validated={validated}
+      onSubmit={postNewPlayer}
+    >
+      <Form.Group className="form-group">
         <Form.Label>First name:</Form.Label>
         <Form.Control
           required
@@ -73,7 +78,7 @@ const CreatePlayerForm: FC = () => {
           Please enter Firstname
         </Form.Control.Feedback>
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="form-group">
         <Form.Label>Last name:</Form.Label>
         <Form.Control
           required
@@ -86,7 +91,7 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="form-group">
         <Form.Label>Age:</Form.Label>
         <Form.Control
           required
@@ -99,7 +104,7 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="form-group">
         <Form.Label>Country:</Form.Label>
         <Form.Control
           required
@@ -112,7 +117,7 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="form-group">
         <Form.Label>Position:</Form.Label>
         <Form.Control
           required
@@ -125,7 +130,7 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="form-group">
         <Form.Label>Image: </Form.Label>
         <Form.Control
           required
@@ -138,7 +143,9 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <input type="submit" value="Save Player" />
+      <div className="form-btn-container">
+        <input className="form-btn" type="submit" value="Save Player" />
+      </div>
     </Form>
   );
 };

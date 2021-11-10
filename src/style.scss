@@ -1,3 +1,4 @@
+// ---- Modal ----
 .modal-container {
   width: 50vw;
   max-width: 50vw;
@@ -27,8 +28,18 @@
   }
 
   .modal-save-btn {
-    background-color: #348ce4;
+    background-color: #096ed3;
     color: white;
+
+    &:hover {
+      background-color: #3f9bf7;
+    }
+
+    &:active {
+      background-color: #3f9bf7;
+      -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+      box-shadow: inset 5px 5px 12px -7px #000000;
+    }
   }
 
   .modal-close-btn {
@@ -38,6 +49,7 @@
   }
 }
 
+// ---- Cards ----
 .cards {
   margin-top: 20px;
   -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
@@ -54,9 +66,77 @@
     border: 0;
     border-radius: 5px;
     padding: 5px 15px;
-    background-color: #348ce4;
+    background-color: #096ed3;
     color: white;
     -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
     box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+
+    &:hover {
+      background-color: #3f9bf7;
+    }
+
+    &:active {
+      background-color: #3f9bf7;
+      -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+      box-shadow: inset 5px 5px 12px -7px #000000;
+    }
+  }
+}
+
+// ---- Create Player Form ----
+.create-player-container {
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .form-container {
+    margin: auto;
+    width: 50vw;
+    max-width: 500px;
+    border-radius: 10px;
+    background-color: #212529;
+    -webkit-box-shadow: 5px 5px 40px -14px #000000;
+    box-shadow: 5px 5px 40px -14px #000000;
+
+    .form-create-player {
+      padding: 20px 25px;
+      font-weight: bold;
+      color: white;
+
+      .form-group {
+        margin-top: 10px;
+      }
+
+      .form-btn-container {
+        display: flex;
+        flex-direction: column;
+
+        .form-btn {
+          margin-top: 25px;
+          align-self: flex-end;
+          float: right;
+          font-size: 18px;
+          font-weight: bold;
+          border: 0;
+          border-radius: 5px;
+          padding: 5px 25px;
+          background-color: #096ed3;
+          color: white;
+          -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+          box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
+
+          &:hover {
+            background-color: #3f9bf7;
+          }
+
+          &:active {
+            background-color: #3f9bf7;
+            -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
+            box-shadow: inset 5px 5px 12px -7px #000000;
+          }
+        }
+      }
+    }
   }
 }
