@@ -1,7 +1,9 @@
 import { FC, useContext } from "react";
+import { Col, Row } from "react-bootstrap";
 import { PlayerContext } from "../../context/PlayerContext";
 import { IPlayer } from "../../interfaces/IPlayers";
 import { PlayerContextType } from "../../types/PlayerContextType";
+import PlayerItem from "./PlayerItem";
 
 const PlayerList: FC = () => {
   const { players } = useContext(PlayerContext) as PlayerContextType;
@@ -11,20 +13,14 @@ const PlayerList: FC = () => {
 
     return players.map((player: IPlayer, key) => {
       return (
-        <>
-          <h3 key={key}>
-            {player.firstname} {player.lastname}
-          </h3>
-          <img
-            src={`https://localhost:5001/images/${player.image}`}
-            alt={player.firstname}
-          />
-        </>
+        <Col key={key} md="6" lg="4" xl="3">
+          <PlayerItem {...player} />
+        </Col>
       );
     });
   };
 
-  return <div>{displayPlayers()}</div>;
+  return <Row>{displayPlayers()}</Row>;
 };
 
 export default PlayerList;
