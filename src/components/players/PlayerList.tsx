@@ -22,7 +22,7 @@ const PlayerList: FC = () => {
 
   const handleClick = (player: IPlayer) => {
     setSelectedPlayer(player);
-    setShowModal(true);
+    handleShowModal();
   };
 
   const displayModal = (player: IPlayer) => {
