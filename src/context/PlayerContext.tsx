@@ -33,8 +33,8 @@ export const PlayerProvider: FC = ({ children }) => {
   };
 
   const deletePlayer = (deletedPlayer: IPlayer) => {
-    // setPlayers(players.filter((player) => player.id !== deletedPlayer.id));
-    console.log(players.filter((player) => player.id !== deletedPlayer.id));
+    playerService.deletePlayer(deletedPlayer);
+    setPlayers(players.filter((player) => player.id !== deletedPlayer.id));
   };
 
   return (

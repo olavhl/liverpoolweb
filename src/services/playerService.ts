@@ -25,8 +25,14 @@ export const playerService = (function () {
     });
   };
 
+  const deletePlayer = (player: IPlayer) => {
+    const deletePlayerURL = `${urlToLiverpoolStatsController}/${player.id}`;
+    axios.delete(deletePlayerURL);
+  };
+
   return {
     getAllPlayers,
     postNewPlayer,
+    deletePlayer,
   };
 })();
