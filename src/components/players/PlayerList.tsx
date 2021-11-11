@@ -7,7 +7,9 @@ import { PlayerContextType } from "../../types/PlayerContextType";
 import PlayerItem from "./PlayerItem";
 
 const PlayerList: FC = () => {
-  const { players } = useContext(PlayerContext) as PlayerContextType;
+  const { players, deletePlayer } = useContext(
+    PlayerContext
+  ) as PlayerContextType;
   const [showModal, setShowModal] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<IPlayer>({
     firstname: "",
@@ -24,6 +26,13 @@ const PlayerList: FC = () => {
   const handleClick = (player: IPlayer) => {
     setSelectedPlayer(player);
     handleShowModal();
+  };
+
+  const removePlayer = () => {
+    if (showModal) {
+      deletePlayer(selectedPlayer);
+      setShowModal(false);
+    }
   };
 
   const displayModal = (player: IPlayer) => {
@@ -59,7 +68,7 @@ const PlayerList: FC = () => {
           <div className="modal-btn-container">
             <Button
               className="modal-delete-btn modal-btn"
-              onClick={handleCloseModal}
+              onClick={removePlayer}
             >
               Delete Player
             </Button>

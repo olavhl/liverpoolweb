@@ -32,9 +32,14 @@ export const PlayerProvider: FC = ({ children }) => {
     setPlayers([...players, newPlayer]);
   };
 
+  const deletePlayer = (deletedPlayer: IPlayer) => {
+    // setPlayers(players.filter((player) => player.id !== deletedPlayer.id));
+    console.log(players.filter((player) => player.id !== deletedPlayer.id));
+  };
+
   return (
     <>
-      <PlayerContext.Provider value={{ players, addPlayer }}>
+      <PlayerContext.Provider value={{ players, addPlayer, deletePlayer }}>
         {children}
       </PlayerContext.Provider>
     </>
