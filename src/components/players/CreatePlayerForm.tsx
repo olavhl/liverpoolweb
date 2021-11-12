@@ -48,7 +48,7 @@ const CreatePlayerForm: FC = () => {
 
   const postNewPlayer = (event: SyntheticEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+    if (!form.checkValidity()) {
       console.log(form.checkValidity());
       event.preventDefault();
       event.stopPropagation();

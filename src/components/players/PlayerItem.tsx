@@ -2,11 +2,7 @@ import Button from "@restart/ui/esm/Button";
 import { FC } from "react";
 import { Card } from "react-bootstrap";
 import { IPlayer } from "../../interfaces/IPlayers";
-
-type PlayerProps = {
-  player: IPlayer;
-  handleClick: (player: IPlayer) => void;
-};
+import {PlayerProps} from "../../types/PropsType";
 
 const PlayerItem: FC<PlayerProps> = ({ player, handleClick }: PlayerProps) => {
   const clickedElement = (player: IPlayer) => {

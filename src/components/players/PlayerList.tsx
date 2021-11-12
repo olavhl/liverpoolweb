@@ -1,15 +1,13 @@
-import Button from "@restart/ui/esm/Button";
-import { FC, useContext, useState } from "react";
-import { Col, Modal, Row } from "react-bootstrap";
-import { PlayerContext } from "../../context/PlayerContext";
-import { IPlayer } from "../../interfaces/IPlayers";
-import { PlayerContextType } from "../../types/PlayerContextType";
+import {FC, useContext, useState} from "react";
+import {Col, Row} from "react-bootstrap";
+import {PlayerContext} from "../../context/PlayerContext";
+import {IPlayer} from "../../interfaces/IPlayers";
+import {PlayerContextType} from "../../types/PlayerContextType";
 import PlayerItem from "./PlayerItem";
+import {PlayerModal} from "./PlayerModal";
 
 const PlayerList: FC = () => {
-  const { players, deletePlayer } = useContext(
-    PlayerContext
-  ) as PlayerContextType;
+  const { players, deletePlayer } = useContext(PlayerContext) as PlayerContextType;
   const [showModal, setShowModal] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<IPlayer>({
     firstname: "",
@@ -37,56 +35,7 @@ const PlayerList: FC = () => {
 
   const displayModal = (player: IPlayer) => {
     return (
-      <Modal
-        show={showModal}
-        onHide={handleCloseModal}
-        dialogClassName="modal-container"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Player</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="modal-body">
-          <img
-            src={`https://localhost:5001/images/${player.image}`}
-            alt={player.firstname}
-          />
-          <div className="modal-text-container">
-            <label>First Name</label>
-            <input readOnly type="text" value={player.firstname} />
-            <label>Last Name</label>
-            <input readOnly type="text" value={player.lastname} />
-            <label>Age</label>
-            <input readOnly type="text" value={player.age} />
-            <label>Country</label>
-            <input readOnly type="text" value={player.country} />
-            <label>Position</label>
-            <input readOnly type="text" value={player.position} />
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <div className="modal-btn-container">
-            <Button
-              className="modal-delete-btn modal-btn"
-              onClick={removePlayer}
-            >
-              Delete Player
-            </Button>
-
-            <Button
-              className="modal-save-btn modal-btn"
-              onClick={handleCloseModal}
-            >
-              Save Changes
-            </Button>
-            <Button
-              className="modal-close-btn modal-btn"
-              onClick={handleCloseModal}
-            >
-              Close
-            </Button>
-          </div>
-        </Modal.Footer>
-      </Modal>
+      <PlayerModal show={showModal} onHide={handleCloseModal} player={player} onClick={removePlayer}/>
     );
   };
 
