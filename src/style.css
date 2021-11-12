@@ -3,41 +3,21 @@
   max-width: 50vw;
   min-width: 550px;
 }
-
 .modal-container .modal-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   gap: 5vw;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .modal-container .modal-body .modal-text-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .modal-container .modal-btn-container {
   width: 55vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .modal-container .modal-btn-container .modal-btn {
   font-weight: bold;
   width: 150px;
@@ -47,54 +27,43 @@
   border-radius: 5px;
   padding: 5px 15px;
 }
-
 .modal-container .modal-btn-container .modal-save-btn {
   background-color: #096ed3;
   color: white;
   margin-left: auto;
   margin-right: 10px;
 }
-
 .modal-container .modal-btn-container .modal-save-btn:hover {
   background-color: #3f9bf7;
 }
-
 .modal-container .modal-btn-container .modal-save-btn:active {
   background-color: #3f9bf7;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
-
 .modal-container .modal-btn-container .modal-close-btn {
   background-color: white;
   color: #212529;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  align-items: end;
   border: 0.5px solid #212529;
 }
-
 .modal-container .modal-btn-container .modal-close-btn:hover {
   background: #e0e0e0;
 }
-
 .modal-container .modal-btn-container .modal-close-btn:active {
   background: #e0e0e0;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
-
 .modal-container .modal-btn-container .modal-delete-btn {
   background-color: white;
   border: 0.5px solid #db2834;
   color: #db2834;
 }
-
 .modal-container .modal-btn-container .modal-delete-btn:hover {
   background: #db2834;
   color: white;
 }
-
 .modal-container .modal-btn-container .modal-delete-btn:active {
   background: #db2834;
   color: white;
@@ -107,11 +76,9 @@
   -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
   box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
 }
-
 .cards .card-title {
   margin-top: 10px;
 }
-
 .cards .card-btn {
   float: right;
   font-size: 14px;
@@ -124,11 +91,9 @@
   -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
   box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
 }
-
 .cards .card-btn:hover {
   background-color: #3f9bf7;
 }
-
 .cards .card-btn:active {
   background-color: #3f9bf7;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
@@ -139,7 +104,6 @@
   text-align: center;
   margin: 20px 0;
 }
-
 .create-player-container .form-container {
   margin: auto;
   width: 50vw;
@@ -149,31 +113,21 @@
   -webkit-box-shadow: 5px 5px 40px -14px #000000;
   box-shadow: 5px 5px 40px -14px #000000;
 }
-
 .create-player-container .form-container .form-create-player {
   padding: 20px 25px;
   font-weight: bold;
   color: white;
 }
-
 .create-player-container .form-container .form-create-player .form-group {
   margin-top: 10px;
 }
-
 .create-player-container .form-container .form-create-player .form-btn-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .create-player-container .form-container .form-create-player .form-btn-container .form-btn {
   margin-top: 25px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   float: right;
   font-size: 18px;
   font-weight: bold;
@@ -185,14 +139,13 @@
   -webkit-box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
   box-shadow: 5px 6px 20px -11px rgba(0, 0, 0, 0.65);
 }
-
 .create-player-container .form-container .form-create-player .form-btn-container .form-btn:hover {
   background-color: #3f9bf7;
 }
-
 .create-player-container .form-container .form-create-player .form-btn-container .form-btn:active {
   background-color: #3f9bf7;
   -webkit-box-shadow: inset 5px 5px 12px -7px #000000;
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
+
 /*# sourceMappingURL=style.css.map */

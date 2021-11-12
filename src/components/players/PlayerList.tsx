@@ -36,7 +36,6 @@ const PlayerList: FC = () => {
   };
 
   const displayModal = (player: IPlayer) => {
-    console.log("OK");
     return (
       <Modal
         show={showModal}
