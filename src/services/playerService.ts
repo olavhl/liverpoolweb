@@ -25,6 +25,12 @@ export const playerService = (function () {
     });
   };
 
+  const updatePlayer = (updatedPlayer: IPlayer) => {
+      const updatePlayerUrl = `${urlToLiverpoolStatsController}/${updatedPlayer.id}`
+
+      axios.put(updatePlayerUrl, updatedPlayer)
+  }
+
   const deletePlayer = (player: IPlayer) => {
     const deletePlayerURL = `${urlToLiverpoolStatsController}/${player.id}`;
     const deleteImageUrl = `${urlToImageUploadController}/${player.image}`;
@@ -45,5 +51,6 @@ export const playerService = (function () {
     getAllPlayers,
     postNewPlayer,
     deletePlayer,
+    updatePlayer
   };
 })();

@@ -7,9 +7,17 @@ import PlayerItem from "./PlayerItem";
 import {PlayerModal} from "./PlayerModal";
 
 const PlayerList: FC = () => {
-  const { players, deletePlayer } = useContext(PlayerContext) as PlayerContextType;
+  const { players, deletePlayer, updatePlayer } = useContext(PlayerContext) as PlayerContextType;
   const [showModal, setShowModal] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<IPlayer>({
+    firstname: "",
+    lastname: "",
+    age: 0,
+    country: "",
+    position: "",
+    image: "",
+  });
+  const [updatedPlayer, setUpdatedPlayer] = useState<IPlayer>({
     firstname: "",
     lastname: "",
     age: 0,
@@ -33,15 +41,22 @@ const PlayerList: FC = () => {
     }
   };
 
+  const onChanged = (player: IPlayer) => {
+    setUpdatedPlayer(player)
+  }
+
+  const onSaveChanges = () => {
+    updatePlayer(updatedPlayer)
+    console.log("Updated Player:", updatedPlayer)
+  }
+
   const displayModal = (player: IPlayer) => {
     return (
-      <PlayerModal show={showModal} onHide={handleCloseModal} player={player} onClick={removePlayer}/>
+      <PlayerModal show={showModal} onHide={handleCloseModal} player={player} handleDelete={removePlayer} onUpdatePlayer={onChanged} onSaveChanges={onSaveChanges}/>
     );
   };
 
   const displayPlayers = () => {
-    console.log(players);
-
     return players.map((player: IPlayer, key) => {
       return (
         <Col key={key} md="6" lg="4" xl="3">

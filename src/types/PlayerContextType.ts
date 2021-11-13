@@ -4,4 +4,5 @@ export type PlayerContextType = {
   players: IPlayer[];
   addPlayer: (newPlayer: IPlayer, image: File) => void;
   deletePlayer: (deletedPlayer: IPlayer) => void;
+  updatePlayer: (updatedPlayer: IPlayer) => void;
 };

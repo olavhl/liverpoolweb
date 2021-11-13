@@ -17,20 +17,20 @@ export function PlayerModal(props: ModalProps) {
                 src={`https://localhost:5001/images/${props.player.image}`}
                 alt={props.player.firstname}
             />
-            <ModalForm player={props.player}/>
+            <ModalForm player={props.player} onUpdatePlayer={props.onUpdatePlayer}/>
         </Modal.Body>
         <Modal.Footer>
             <div className="modal-btn-container">
                 <Button
                     className="modal-delete-btn modal-btn"
-                    onClick={props.onClick}
+                    onClick={props.handleDelete}
                 >
                     Delete Player
                 </Button>
 
                 <Button
                     className="modal-save-btn modal-btn"
-                    onClick={props.onHide}
+                    onClick={props.onSaveChanges}
                 >
                     Save Changes
                 </Button>

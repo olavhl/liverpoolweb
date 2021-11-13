@@ -1,10 +1,12 @@
 import {IPlayer} from "../interfaces/IPlayers";
 
 export  type ModalProps = {
-    show: boolean;
-    onHide: () => void;
+    show?: boolean;
+    onHide?: () => void;
     player: IPlayer;
-    onClick: () => void;
+    handleDelete?: () => void;
+    onUpdatePlayer: (player: IPlayer) => void;
+    onSaveChanges?: () => void;
 }
 
 export type PlayerProps = {

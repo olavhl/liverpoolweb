@@ -32,6 +32,17 @@ export const PlayerProvider: FC = ({ children }) => {
     setPlayers([...players, newPlayer]);
   };
 
+  const updatePlayer = (updatedPlayer: IPlayer) => {
+    playerService.updatePlayer(updatedPlayer);
+    let updatedList = players.map(player => {
+      if (player.id === updatedPlayer.id) {
+        player = updatedPlayer
+      }
+      return player
+    })
+    setPlayers(updatedList)
+  }
+
   const deletePlayer = (deletedPlayer: IPlayer) => {
     playerService.deletePlayer(deletedPlayer);
     setPlayers(players.filter((player) => player.id !== deletedPlayer.id));
@@ -39,7 +50,7 @@ export const PlayerProvider: FC = ({ children }) => {
 
   return (
     <>
-      <PlayerContext.Provider value={{ players, addPlayer, deletePlayer }}>
+      <PlayerContext.Provider value={{ players, addPlayer, deletePlayer, updatePlayer }}>
         {children}
       </PlayerContext.Provider>
     </>
