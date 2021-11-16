@@ -1,10 +1,14 @@
 import {Form} from "react-bootstrap";
 import {ModalProps} from "../../types/PropsType";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {IPlayer} from "../../interfaces/IPlayers";
 
 export function ModalForm(props: ModalProps) {
     const [updatedPlayer, setUpdatedPlayer] = useState<IPlayer>(props.player);
+
+    useEffect(() => {
+        props.onUpdatePlayer(updatedPlayer)
+    }, [props, updatedPlayer])
 
     const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
         let { name } = event.target;
@@ -28,10 +32,7 @@ export function ModalForm(props: ModalProps) {
                     setUpdatedPlayer({...updatedPlayer, position: event.target.value});
                     break;
             }
-            props.onUpdatePlayer(updatedPlayer)
         }
-
-
     }
 
     return <Form className="modal-text-container">
