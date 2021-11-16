@@ -1,4 +1,5 @@
 import {IPlayer} from "../interfaces/IPlayers";
+import {ChangeEvent} from "react";
 
 export  type ModalProps = {
     show?: boolean;
@@ -13,3 +14,10 @@ export type PlayerProps = {
     player: IPlayer;
     handleClick: (player: IPlayer) => void;
 };
+export type ModalFieldProps = {
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    placeHolder: string | number;
+    name: string;
+    label: string;
+    type: string;
+}

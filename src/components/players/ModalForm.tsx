@@ -2,6 +2,7 @@ import {Form} from "react-bootstrap";
 import {ModalProps} from "../../types/PropsType";
 import {ChangeEvent, useEffect, useState} from "react";
 import {IPlayer} from "../../interfaces/IPlayers";
+import {ModalField} from "./modal/ModalField";
 
 export function ModalForm(props: ModalProps) {
     const [updatedPlayer, setUpdatedPlayer] = useState<IPlayer>(props.player);
@@ -36,50 +37,10 @@ export function ModalForm(props: ModalProps) {
     }
 
     return <Form className="modal-text-container">
-        <Form.Group>
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-                name={"firstname"}
-                type={"text"}
-                onChange={handleUpdate}
-                placeholder={props.player.firstname}
-            />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-                name={"lastname"}
-                type={"text"}
-                onChange={handleUpdate}
-                placeholder={props.player.lastname}
-            />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Age</Form.Label>
-            <Form.Control
-                name={"age"}
-                type={"text"}
-                onChange={handleUpdate}
-                placeholder={String(props.player.age)}
-            />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Country</Form.Label>
-            <Form.Control
-                name={"country"}
-                type={"text"}
-                onChange={handleUpdate}
-                placeholder={props.player.country}
-            />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Position</Form.Label>
-            <Form.Control
-                name={"position"}
-                type={"text"}
-                onChange={handleUpdate}
-                placeholder={props.player.position}
-            />
-        </Form.Group>
+        <ModalField onChange={handleUpdate} placeHolder={props.player.firstname} name={"firstname"} label={"First Name"} type={"text"} />
+        <ModalField onChange={handleUpdate} placeHolder={props.player.lastname} name={"lastname"} label={"Last Name"} type={"text"} />
+        <ModalField onChange={handleUpdate} placeHolder={props.player.age} name={"age"} label={"Age"} type={"number"} />
+        <ModalField onChange={handleUpdate} placeHolder={props.player.country} name={"country"} label={"Country"} type={"text"} />
+        <ModalField onChange={handleUpdate} placeHolder={props.player.position} name={"position"} label={"Position"} type={"text"} />
     </Form>;
 }

@@ -46,8 +46,8 @@ const PlayerList: FC = () => {
   }
 
   const onSaveChanges = () => {
-    updatePlayer(updatedPlayer)
-    console.log("Updated Player:", updatedPlayer)
+    updatePlayer(updatedPlayer);
+    handleCloseModal();
   }
 
   const displayModal = (player: IPlayer) => {
