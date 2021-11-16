@@ -56,19 +56,41 @@ const PlayerList: FC = () => {
     );
   };
 
-  const displayPlayers = () => {
-    return players.map((player: IPlayer, key) => {
-      return (
-        <Col key={key} md="6" lg="4" xl="3">
+  // const displayPlayers = () => {
+  //   let allPlayers = displayPlayerFromPosition("Goalkeeper")
+  //   allPlayers = allPlayers + displayPlayerFromPosition("Defender")
+  //   let midfielders = displayPlayerFromPosition("Midfielder")
+  //   let attackers = displayPlayerFromPosition("Attacker")
+  //   return {goalkeepers, defenders, midfielders, attackers}
+  // };
+
+  const displayPlayerFromPosition = (position: String) => {
+    return players.map((player:IPlayer, key) => {
+      if (player.position.toLocaleLowerCase() === position.toLocaleLowerCase()) {
+        return (
+            <Col key={key} md="6" lg="4" xl="3">
+              <PlayerItem player={player} handleClick={handleClick} />
+            </Col>
+        )
+      } else if (player.position === "") {
+        return <Col key={key} md="6" lg="4" xl="3">
           <PlayerItem player={player} handleClick={handleClick} />
         </Col>
-      );
-    });
-  };
+      }
+    })
+  }
 
   return (
     <>
-      <Row>{displayPlayers()}</Row>
+      <Row>{displayPlayerFromPosition("Goalkeeper")}</Row>
+      <hr/>
+      <Row>{displayPlayerFromPosition("Defender")}</Row>
+      <hr/>
+      <Row>{displayPlayerFromPosition("Midfielder")}</Row>
+      <hr/>
+      <Row>{displayPlayerFromPosition("Attacker")}</Row>
+      <hr/>
+      <Row>{displayPlayerFromPosition("")}</Row>
       {showModal && displayModal(selectedPlayer)}
     </>
   );
