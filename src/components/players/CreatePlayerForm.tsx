@@ -1,21 +1,9 @@
-import { ChangeEvent, FC, SyntheticEvent, useContext, useState } from "react";
-import {Form, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import { PlayerContext } from "../../context/PlayerContext";
-import { IPlayer } from "../../interfaces/IPlayers";
-import { PlayerContextType } from "../../types/PlayerContextType";
-
-function RadioPositionButtons(props: { selectRadioButton: (position: string) => void }) {
-  const handleToggleButton = (position: string) => {
-    props.selectRadioButton(position)
-  }
-
-  return <ToggleButtonGroup type={"radio"} name={"Toggle-buttons"}>
-    <ToggleButton onClick={() => handleToggleButton("Goalkeeper")} value={"Goalkeeper"}>Goalkeeper</ToggleButton>
-    <ToggleButton onClick={() => handleToggleButton("Defender")} value={"Defender"}>Defender</ToggleButton>
-    <ToggleButton onClick={() => handleToggleButton("Midfielder")} value={"Midfielder"}>Midfielder</ToggleButton>
-    <ToggleButton onClick={() => handleToggleButton("Attacker")} value={"Attacker"}>Attacker </ToggleButton>
-  </ToggleButtonGroup>;
-}
+import {ChangeEvent, FC, SyntheticEvent, useContext, useState} from "react";
+import {Form} from "react-bootstrap";
+import {PlayerContext} from "../../context/PlayerContext";
+import {IPlayer} from "../../interfaces/IPlayers";
+import {PlayerContextType} from "../../types/PlayerContextType";
+import {RadioPositionButtons} from "./RadioPositionButtons";
 
 const CreatePlayerForm: FC = () => {
   const { addPlayer } = useContext(PlayerContext) as PlayerContextType;
@@ -135,9 +123,9 @@ const CreatePlayerForm: FC = () => {
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group className="form-group">
+      <Form.Group className="form-group radio-buttons-container">
         <Form.Label>Position:</Form.Label>
-        <RadioPositionButtons selectRadioButton={handlePositionChange}/>
+        <RadioPositionButtons  selectRadioButton={handlePositionChange}/>
       </Form.Group>
 
       <Form.Group className="form-group">

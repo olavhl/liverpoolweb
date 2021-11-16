@@ -3,6 +3,7 @@ import {ModalProps} from "../../types/PropsType";
 import {ChangeEvent, useEffect, useState} from "react";
 import {IPlayer} from "../../interfaces/IPlayers";
 import {ModalField} from "./modal/ModalField";
+import {RadioPositionButtons} from "./RadioPositionButtons";
 
 export function ModalForm(props: ModalProps) {
     const [updatedPlayer, setUpdatedPlayer] = useState<IPlayer>(props.player);
@@ -29,18 +30,21 @@ export function ModalForm(props: ModalProps) {
                 case "country":
                     setUpdatedPlayer({...updatedPlayer, country: event.target.value});
                     break;
-                case "position":
-                    setUpdatedPlayer({...updatedPlayer, position: event.target.value});
-                    break;
             }
         }
+    }
+
+    const handlePositionChange = (position: string) => {
+        setUpdatedPlayer({...updatedPlayer, position: position})
     }
 
     return <Form className="modal-text-container">
         <ModalField onChange={handleUpdate} placeHolder={props.player.firstname} name={"firstname"} label={"First Name"} type={"text"} />
         <ModalField onChange={handleUpdate} placeHolder={props.player.lastname} name={"lastname"} label={"Last Name"} type={"text"} />
         <ModalField onChange={handleUpdate} placeHolder={props.player.age} name={"age"} label={"Age"} type={"number"} />
-        <ModalField onChange={handleUpdate} placeHolder={props.player.country} name={"country"} label={"Country"} type={"text"} />
-        <ModalField onChange={handleUpdate} placeHolder={props.player.position} name={"position"} label={"Position"} type={"text"} />
+        <Form.Group className={"radio-buttons-container"}>
+            <Form.Label>Position</Form.Label>
+            <RadioPositionButtons selectRadioButton={handlePositionChange}/>
+        </Form.Group>
     </Form>;
 }
