@@ -33,18 +33,11 @@ export const playerService = (function () {
 
   const deletePlayer = (player: IPlayer) => {
     const deletePlayerURL = `${urlToLiverpoolStatsController}/${player.id}`;
-    const deleteImageUrl = `${urlToImageUploadController}/${player.image}`;
 
     let formData = new FormData();
     formData.append("file", player.image);
 
     axios.delete(deletePlayerURL);
-    axios({
-      url: deleteImageUrl,
-      method: "DELETE",
-      data: formData,
-      headers: { "Content-Type": "multipart/form-data" },
-    });
   };
 
   return {
