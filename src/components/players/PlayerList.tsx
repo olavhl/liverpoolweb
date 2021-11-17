@@ -64,6 +64,8 @@ const PlayerList: FC = () => {
               <PlayerItem player={player} handleClick={handleClick} />
             </Col>
         )
+      } else {
+        return ""
       }
     })
   }
