@@ -198,43 +198,66 @@
 
   .field-players-grid {
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: 9vh 9vh 9vh 9vh ;
     position: absolute;
-    width: 45vw;
+    width: 43vw;
     height: 40vh;
     margin: 3vh 6vh;
-    justify-content: center;
-    align-items: center;
 
+    .add-player-button {
+      width: 4.5vw;
+      height: 4.5vw;
+    }
 
     .field-attackers {
       display: grid;
       grid-template-columns: 8vw 8vw 8vw;
-      text-align: center;
+      height: 8vh;
       justify-content: center;
-      align-items: center;
 
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     .field-midfielders {
       display: grid;
       grid-template-columns: 8vw 8vw 8vw;
-      text-align: center;
+      height: 8vh;
       justify-content: center;
-      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
+
     .field-defenders {
       display: grid;
       grid-template-columns: 8vw 8vw 8vw 8vw;
-      text-align: center;
+      height: 8vh;
       justify-content: center;
-      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .field-goalkeeper {
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: 8vw;
+      height: 8vh;
       justify-content: center;
-      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

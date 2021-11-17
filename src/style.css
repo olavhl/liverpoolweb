@@ -164,40 +164,59 @@
 }
 .football-field .field-players-grid {
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: 9vh 9vh 9vh 9vh;
   position: absolute;
-  width: 45vw;
+  width: 43vw;
   height: 40vh;
   margin: 3vh 6vh;
-  justify-content: center;
-  align-items: center;
+}
+.football-field .field-players-grid .add-player-button {
+  width: 4.5vw;
+  height: 4.5vw;
 }
 .football-field .field-players-grid .field-attackers {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw;
-  text-align: center;
+  height: 8vh;
   justify-content: center;
+}
+.football-field .field-players-grid .field-attackers div {
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 .football-field .field-players-grid .field-midfielders {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw;
-  text-align: center;
+  height: 8vh;
   justify-content: center;
+}
+.football-field .field-players-grid .field-midfielders div {
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 .football-field .field-players-grid .field-defenders {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw 8vw;
-  text-align: center;
+  height: 8vh;
   justify-content: center;
+}
+.football-field .field-players-grid .field-defenders div {
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 .football-field .field-players-grid .field-goalkeeper {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 8vw;
+  height: 8vh;
   justify-content: center;
+}
+.football-field .field-players-grid .field-goalkeeper div {
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

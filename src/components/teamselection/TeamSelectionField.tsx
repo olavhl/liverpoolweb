@@ -1,4 +1,5 @@
 import footballField from "../../assets/images/footballfield.png";
+import addPlayer from '../../assets/images/addplayer.png';
 import React from "react";
 
 export function TeamSelectionField() {
@@ -6,23 +7,45 @@ export function TeamSelectionField() {
             <img src={footballField} alt="Football Field"/>
             <div className="field-players-grid">
                     <div className="field-attackers">
-                            <div>Hei</div>
-                            <div>Hei</div>
-                            <div>Hei</div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
                     </div>
                     <div className="field-midfielders">
-                            <div>Hei</div>
-                            <div>Hei</div>
-                            <div>Hei</div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
                     </div>
                     <div className="field-defenders">
-                            <div>Hei</div>
-                            <div>Hei</div>
-                            <div>Hei</div>
-                            <div>Hei</div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
                     </div>
                     <div className="field-goalkeeper">
-                        <div>Hei</div>
+                            <div>
+                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
+                            </div>
                     </div>
             </div>
     </div>
