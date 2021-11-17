@@ -183,3 +183,58 @@
     }
   }
 }
+
+// ---- Football field ----
+.football-field {
+  width: 50vw;
+  height: 45vh;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 55vh;
+    position: absolute;
+  }
+
+  .field-players-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    position: absolute;
+    width: 45vw;
+    height: 40vh;
+    margin: 3vh 6vh;
+    justify-content: center;
+    align-items: center;
+
+
+    .field-attackers {
+      display: grid;
+      grid-template-columns: 8vw 8vw 8vw;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .field-midfielders {
+      display: grid;
+      grid-template-columns: 8vw 8vw 8vw;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .field-defenders {
+      display: grid;
+      grid-template-columns: 8vw 8vw 8vw 8vw;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .field-goalkeeper {
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
