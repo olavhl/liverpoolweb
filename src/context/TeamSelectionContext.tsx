@@ -18,7 +18,7 @@ export const TeamSelectionProvider: FC = ({children}) => {
         };
     const initialState = {
         id: "jup",
-        goalkeepers: initialPlayer,
+        goalkeeper: initialPlayer,
         defenders: [initialPlayer],
         midfielders: [initialPlayer],
         attackers: [initialPlayer]

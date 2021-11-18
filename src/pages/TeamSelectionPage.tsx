@@ -6,11 +6,12 @@ import {Button, ListGroup} from "react-bootstrap";
 import {IPlayer} from "../interfaces/IPlayers";
 import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
+import {ITeamSelection} from "../interfaces/ITeamSelection";
 
 
 const TeamSelectionPage = () => {
     const { players } = useContext(PlayerContext) as PlayerContextType;
-    const { teamSelections } = useContext(TeamSelectionContext) as TeamSelectionContextType;
+    const { teamSelections, addTeamSelection } = useContext(TeamSelectionContext) as TeamSelectionContextType;
     const [isNotReadyToSend, setIsNotReadyToSend] = useState(true)
 
     const initialPlayer = {
@@ -115,6 +116,24 @@ const TeamSelectionPage = () => {
         return player.firstname === "";
     }
 
+    const postNewTeamSelection = () => {
+        let newTeamSelection: ITeamSelection = {
+            goalkeeper: goalkeeper,
+            defenders: defenders,
+            midfielders: midfielders,
+            attackers: attackers
+        };
+        addTeamSelection(newTeamSelection);
+        emptyPlayerField()
+    }
+
+    const emptyPlayerField = () => {
+        setGoalkeeper(initialPlayer)
+        setDefenders([initialPlayer, initialPlayer, initialPlayer, initialPlayer])
+        setMidfielders([initialPlayer, initialPlayer, initialPlayer])
+        setAttackers([initialPlayer, initialPlayer, initialPlayer])
+    }
+
   return (
     <div>
         <h1>Team Selection</h1>
@@ -135,7 +154,7 @@ const TeamSelectionPage = () => {
                 </ListGroup.Item>
             </ListGroup>
 
-            <Button disabled={isNotReadyToSend}>Send Team</Button>
+            <Button onClick={postNewTeamSelection} disabled={isNotReadyToSend}>Send Team</Button>
 
         </div>
     </div>
