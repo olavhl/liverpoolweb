@@ -1,59 +1,59 @@
 import footballField from "../../assets/images/footballfield.png";
-import addPlayer from '../../assets/images/addplayer.png';
-import React, {SyntheticEvent} from "react";
+import React, {FC} from "react";
+import TeamSelectionDefaultPlayer from "./TeamSelectionDefaultPlayer";
+import {IPlayer} from "../../interfaces/IPlayers";
 
-export function TeamSelectionField() {
-        // const [selectedPosition, setSelectedPosition] = useState()
+type TeamSelectionFieldProps = {
+        goalkeeper: IPlayer;
+        defenders: IPlayer[];
+        midfielders: IPlayer[];
+        attackers: IPlayer[];
 
-        const selectedImage = (event: SyntheticEvent<HTMLDivElement>) => {
-                console.log(event.target)
+}
+
+const TeamSelectionField : FC<TeamSelectionFieldProps> = ({goalkeeper, defenders, midfielders, attackers} : TeamSelectionFieldProps) => {
+
+        const displayPlayersOnField = (players: IPlayer[]) => {
+                return players.map((player:IPlayer, key) => {
+                        if (player.firstname !== "") {
+                                return (
+                                    <TeamSelectionDefaultPlayer listKey={key} image={`https://localhost:5001/images/${player.image}`} />
+                                )
+                        } else {
+                                return <TeamSelectionDefaultPlayer listKey={key} image={""} />
+                        }
+
+                })
         }
+
+        const displayGoalkeeper = () => {
+            if (goalkeeper.firstname === "") {
+                return <TeamSelectionDefaultPlayer listKey={12131313} image={""} />
+            } else {
+                return <TeamSelectionDefaultPlayer listKey={1231441} image={`https://localhost:5001/images/${goalkeeper.image}`}/>
+            }
+        }
+
     return (
         <div className={"football-field"}>
-            <img src={footballField} alt="Football Field"/>
-            <div className="field-players-grid">
-                    <div className="field-attackers">
-                            <div>
-                                    <img onClick={selectedImage} className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                    </div>
-                    <div className="field-midfielders">
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                    </div>
-                    <div className="field-defenders">
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                    </div>
-                    <div className="field-goalkeeper">
-                            <div>
-                                    <img className={"add-player-button"} src={addPlayer} alt="Add player"/>
-                            </div>
-                    </div>
-            </div>
-    </div>
+                <img src={footballField} alt="Football Field"/>
+                <div className="field-players-grid">
+                        <div className="field-attackers">
+                                {displayPlayersOnField(attackers)}
+                        </div>
+                        <div className="field-midfielders">
+                                {displayPlayersOnField(midfielders)}
+
+                        </div>
+                        <div className="field-defenders">
+                                {displayPlayersOnField(defenders)}
+                        </div>
+                        <div className="field-goalkeeper">
+                            {displayGoalkeeper()}
+                        </div>
+                </div>
+        </div>
     );
 }
+
+export default TeamSelectionField;

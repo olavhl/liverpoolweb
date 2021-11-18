@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {TeamSelectionField} from "../components/teamselection/TeamSelectionField";
+import TeamSelectionField from "../components/teamselection/TeamSelectionField";
 import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
 import {ListGroup} from "react-bootstrap";
@@ -18,10 +18,10 @@ const TeamSelectionPage = () => {
         image: "",
     };
 
-    const [goalkeeper, setGoalkeeper] = useState<IPlayer>()
-    const [defenders, setDefenders] = useState<IPlayer[]>([initialPlayer])
-    const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer])
-    const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer])
+    const [goalkeeper, setGoalkeeper] = useState<IPlayer>(initialPlayer)
+    const [defenders, setDefenders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer, initialPlayer])
+    const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
+    const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
 
 
 
@@ -40,61 +40,62 @@ const TeamSelectionPage = () => {
     const handleClickedPlayer = (player: IPlayer) => {
         let position = player.position;
 
-        if (position === "Goalkeeper" && goalkeeper !== null) {
+        if (position === "Goalkeeper") {
             setGoalkeeper(player)
-        } else if (position === "Defender" && defenders.length < 4) {
-            let alreadySelected = false;
-            for (let i = 0; i < defenders.length; i++){
-                if (player.id === defenders[i].id){
-                    alreadySelected = true
-                }
-            }
+        } else if (position === "Defender") {
+            let alreadySelected = checkForAlreadyInArray(player, defenders);
             if (!alreadySelected) {
-                if (defenders[0].firstname === "") {
-                    setDefenders([player])
-                } else {
-                    setDefenders(defenders =>  [...defenders, player])
-                }
-            }
-        } else if (position === "Midfielder" && midfielders.length < 3) {
-            let alreadySelected = false;
-            for (let i = 0; i < midfielders.length; i++){
-                    if (player.id === midfielders[i].id){
-                        alreadySelected = true
+                defenders.map((defender: IPlayer, index) => {
+                    if (defender.firstname === "") {
+                        let defendersCopy = [...defenders]
+                        defendersCopy[index] = player
+                        setDefenders(defendersCopy)
                     }
-                }
-            if (!alreadySelected) {
-                if (midfielders[0].firstname === "") {
-                    setMidfielders([player])
-                } else {
-                    setMidfielders(midfielders =>  [...midfielders, player])
-                }
+                    return defenders
+                })
             }
-        } else if (position === "Attacker" && attackers.length < 3) {
-            let alreadySelected = false;
-            for (let i = 0; i < attackers.length; i++){
-                if (player.id === attackers[i].id){
-                    alreadySelected = true
-                }
-            }
+        } else if (position === "Midfielder") {
+            let alreadySelected = checkForAlreadyInArray(player, midfielders)
             if (!alreadySelected) {
-                if (attackers[0].firstname === "") {
-                    setAttackers([player])
-                } else {
-                    setAttackers(oldAttackers =>  [...oldAttackers, player])
-                }
+                midfielders.map((midfielder: IPlayer, index) => {
+                    if (midfielder.firstname === "") {
+                        let midfieldersCopy = [...midfielders]
+                        midfieldersCopy[index] = player
+                        setMidfielders(midfieldersCopy)
+                    }
+                    return midfielders
+                })
+            }
+        } else if (position === "Attacker") {
+            let alreadySelected = checkForAlreadyInArray(player, attackers)
+            if (!alreadySelected) {
+                attackers.map((attacker: IPlayer, index) => {
+                    if (attacker.firstname === "") {
+                        let attackersCopy = [...attackers]
+                        attackersCopy[index] = player
+                        setAttackers(attackersCopy)
+                    }
+                    return attackers
+                })
             }
         }
     }
-    console.log(goalkeeper)
-    console.log(defenders)
-    console.log(midfielders)
-    console.log(attackers)
+
+    const checkForAlreadyInArray = (player: IPlayer, players: IPlayer[]) => {
+        let alreadySelected = false;
+        for (let i = 0; i < players.length; i++) {
+            if (player.id === players[i].id) {
+                alreadySelected = true
+            }
+        }
+        return alreadySelected
+    }
 
   return (
     <div>
         <h1>Team Selection</h1>
-        <TeamSelectionField/>
+        <TeamSelectionField goalkeeper={goalkeeper} defenders={defenders} midfielders={midfielders} attackers={attackers} />
+
         <ListGroup>
             <ListGroup.Item>
                 <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
