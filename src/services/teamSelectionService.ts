@@ -10,7 +10,12 @@ export const teamSelectionService = (function () {
         return result["data"];
     }
 
+    const postNewTeamSelection = (newTeamSelection: ITeamSelection) => {
+        axios.post(urlToTeamSelectionController, newTeamSelection);
+    }
+
     return {
-        getAllTeamSelections
+        getAllTeamSelections,
+        postNewTeamSelection
     }
 })();

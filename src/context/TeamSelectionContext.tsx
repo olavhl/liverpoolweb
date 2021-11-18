@@ -35,9 +35,14 @@ export const TeamSelectionProvider: FC = ({children}) => {
         setTeamSelections(result)
     }
 
+    const addTeamSelection = async (newTeamSelection: ITeamSelection) => {
+        teamSelectionService.postNewTeamSelection(newTeamSelection);
+        setTeamSelections([...teamSelections, newTeamSelection]);
+    }
+
     return (
         <>
-            <TeamSelectionContext.Provider value={{teamSelections}}>
+            <TeamSelectionContext.Provider value={{teamSelections, addTeamSelection}}>
                 {children}
             </TeamSelectionContext.Provider>
         </>
