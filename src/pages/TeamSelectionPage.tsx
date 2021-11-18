@@ -34,52 +34,21 @@ const TeamSelectionPage = () => {
         }
     }, [goalkeeper, defenders, midfielders, attackers])
 
-
-
     const handleClickedPlayer = (player: IPlayer) => {
         let position = player.position;
 
         if (position === "Goalkeeper") {
             setGoalkeeper(player)
         } else if (position === "Defender") {
-            let alreadySelected = checkForAlreadyInArray(player, defenders);
-            if (!alreadySelected) {
-                defenders.map((defender: IPlayer, index) => {
-                    if (defender.firstname === "") {
-                        let defendersCopy = [...defenders]
-                        defendersCopy[index] = player
-                        setDefenders(defendersCopy)
-                    }
-                    return defenders
-                })
-            }
+            setDefenders(addPlayerToArray(player, defenders))
         } else if (position === "Midfielder") {
-            let alreadySelected = checkForAlreadyInArray(player, midfielders)
-            if (!alreadySelected) {
-                midfielders.map((midfielder: IPlayer, index) => {
-                    if (midfielder.firstname === "") {
-                        let midfieldersCopy = [...midfielders]
-                        midfieldersCopy[index] = player
-                        setMidfielders(midfieldersCopy)
-                    }
-                    return midfielders
-                })
-            }
+            setMidfielders(addPlayerToArray(player, midfielders))
         } else if (position === "Attacker") {
-            let alreadySelected = checkForAlreadyInArray(player, attackers)
-            if (!alreadySelected) {
-                attackers.map((attacker: IPlayer, index) => {
-                    if (attacker.firstname === "") {
-                        let attackersCopy = [...attackers]
-                        attackersCopy[index] = player
-                        setAttackers(attackersCopy)
-                    }
-                    return attackers
-                })
-            }
+            setAttackers(addPlayerToArray(player, attackers))
         }
     }
 
+    // Function checking the if the player is already selected
     const checkForAlreadyInArray = (player: IPlayer, players: IPlayer[]) => {
         let alreadySelected = false;
         for (let i = 0; i < players.length; i++) {
@@ -88,6 +57,24 @@ const TeamSelectionPage = () => {
             }
         }
         return alreadySelected
+    }
+
+    // Mapping
+    // the array and adding a player if there is an open spot
+    const addPlayerToArray = (player: IPlayer, players: IPlayer[]) => {
+        let alreadySelected = checkForAlreadyInArray(player, players);
+        let playersCopy = [...players];
+        if (!alreadySelected) {
+            players.map((p: IPlayer, index) => {
+                if (p.firstname === "") {
+                    playersCopy = [...players]
+                    playersCopy[index] = player
+                    return playersCopy
+                }
+                return playersCopy
+            })
+        }
+        return playersCopy
     }
 
     const hasArrayEmptySpots = (players: IPlayer[]) => {
