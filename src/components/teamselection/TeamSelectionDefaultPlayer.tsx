@@ -3,7 +3,7 @@ import React, {FC} from "react";
 
 type DefaultPlayerProps = {
     image: string;
-    listKey: number;
+    listKey: React.Key;
 }
 
 const TeamSelectionDefaultPlayer: FC<DefaultPlayerProps> = ({image, listKey} : DefaultPlayerProps) => {

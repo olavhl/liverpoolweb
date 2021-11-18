@@ -19,6 +19,9 @@ const MainNavigation: FC = () => {
           <Nav.Link as={Link} to="/teamselection">
             Team Selection
           </Nav.Link>
+          <Nav.Link as={Link} to="/teamselectionoverview">
+            Team Selection Overview
+          </Nav.Link>
         </Nav>
       </Container>
     </Navbar>
