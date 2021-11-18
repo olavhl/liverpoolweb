@@ -240,4 +240,9 @@
   justify-content: center;
 }
 
+.error-view {
+  font-weight: bold;
+  margin: 10vh 5vh;
+}
+
 /*# sourceMappingURL=style.css.map */
