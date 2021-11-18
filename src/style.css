@@ -152,17 +152,26 @@
   box-shadow: inset 5px 5px 12px -7px #000000;
 }
 
-.football-field {
+.team-selection-page {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: auto 25vw;
+}
+.team-selection-page .team-selection-list {
+  overflow-y: scroll;
+  height: 55vh;
+}
+.team-selection-page .football-field {
   width: 50vw;
   height: 45vh;
   position: relative;
 }
-.football-field img {
+.team-selection-page .football-field img {
   width: 100%;
   height: 55vh;
   position: absolute;
 }
-.football-field .field-players-grid {
+.team-selection-page .football-field .field-players-grid {
   display: grid;
   grid-template-rows: 9vh 9vh 9vh 9vh;
   position: absolute;
@@ -170,37 +179,37 @@
   height: 40vh;
   margin: 3vh 6vh;
 }
-.football-field .field-players-grid .player-images {
+.team-selection-page .football-field .field-players-grid .player-images {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.football-field .field-players-grid .player-images img {
+.team-selection-page .football-field .field-players-grid .player-images img {
   border-radius: 50%;
 }
-.football-field .field-players-grid .add-player-button {
+.team-selection-page .football-field .field-players-grid .add-player-button {
   width: 4.5vw;
   height: 4.5vw;
 }
-.football-field .field-players-grid .field-attackers {
+.team-selection-page .football-field .field-players-grid .field-attackers {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw;
   height: 8vh;
   justify-content: center;
 }
-.football-field .field-players-grid .field-midfielders {
+.team-selection-page .football-field .field-players-grid .field-midfielders {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw;
   height: 8vh;
   justify-content: center;
 }
-.football-field .field-players-grid .field-defenders {
+.team-selection-page .football-field .field-players-grid .field-defenders {
   display: grid;
   grid-template-columns: 8vw 8vw 8vw 8vw;
   height: 8vh;
   justify-content: center;
 }
-.football-field .field-players-grid .field-goalkeeper {
+.team-selection-page .football-field .field-players-grid .field-goalkeeper {
   display: grid;
   grid-template-columns: 8vw;
   height: 8vh;

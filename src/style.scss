@@ -185,65 +185,77 @@
 }
 
 // ---- Football field ----
-.football-field {
-  width: 50vw;
-  height: 45vh;
-  position: relative;
+.team-selection-page {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: auto 25vw;
 
-  img {
-    width: 100%;
+  .team-selection-list {
+    overflow-y: scroll;
     height: 55vh;
-    position: absolute;
   }
 
-  .field-players-grid {
-    display: grid;
-    grid-template-rows: 9vh 9vh 9vh 9vh ;
-    position: absolute;
-    width: 43vw;
-    height: 40vh;
-    margin: 3vh 6vh;
+  .football-field {
+    width: 50vw;
+    height: 45vh;
+    position: relative;
 
-    .player-images {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
-        border-radius: 50%;
+    img {
+      width: 100%;
+      height: 55vh;
+      position: absolute;
+    }
+
+    .field-players-grid {
+      display: grid;
+      grid-template-rows: 9vh 9vh 9vh 9vh;
+      position: absolute;
+      width: 43vw;
+      height: 40vh;
+      margin: 3vh 6vh;
+
+      .player-images {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          border-radius: 50%;
+        }
       }
-    }
 
-    .add-player-button {
-      width: 4.5vw;
-      height: 4.5vw;
-    }
+      .add-player-button {
+        width: 4.5vw;
+        height: 4.5vw;
+      }
 
-    .field-attackers {
-      display: grid;
-      grid-template-columns: 8vw 8vw 8vw;
-      height: 8vh;
-      justify-content: center;
-    }
+      .field-attackers {
+        display: grid;
+        grid-template-columns: 8vw 8vw 8vw;
+        height: 8vh;
+        justify-content: center;
+      }
 
-    .field-midfielders {
-      display: grid;
-      grid-template-columns: 8vw 8vw 8vw;
-      height: 8vh;
-      justify-content: center;
-    }
+      .field-midfielders {
+        display: grid;
+        grid-template-columns: 8vw 8vw 8vw;
+        height: 8vh;
+        justify-content: center;
+      }
 
-    .field-defenders {
-      display: grid;
-      grid-template-columns: 8vw 8vw 8vw 8vw;
-      height: 8vh;
-      justify-content: center;
-    }
+      .field-defenders {
+        display: grid;
+        grid-template-columns: 8vw 8vw 8vw 8vw;
+        height: 8vh;
+        justify-content: center;
+      }
 
-    .field-goalkeeper {
-      display: grid;
-      grid-template-columns: 8vw;
-      height: 8vh;
-      justify-content: center;
+      .field-goalkeeper {
+        display: grid;
+        grid-template-columns: 8vw;
+        height: 8vh;
+        justify-content: center;
+      }
     }
   }
 }

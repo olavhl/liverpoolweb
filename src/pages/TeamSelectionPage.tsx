@@ -94,20 +94,24 @@ const TeamSelectionPage = () => {
   return (
     <div>
         <h1>Team Selection</h1>
-        <TeamSelectionField goalkeeper={goalkeeper} defenders={defenders} midfielders={midfielders} attackers={attackers} />
+        <p>Select the players you want for your team and send in!</p>
+        <div className={"team-selection-page"}>
+            <TeamSelectionField goalkeeper={goalkeeper} defenders={defenders} midfielders={midfielders} attackers={attackers} />
 
-        <ListGroup>
-            <ListGroup.Item>
-                <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
-                {displayPlayers("goalkeeper")}
-                <ListGroup.Item disabled>Defenders</ListGroup.Item>
-                {displayPlayers("defender")}
-                <ListGroup.Item disabled>Midfielders</ListGroup.Item>
-                {displayPlayers("midfielder")}
-                <ListGroup.Item disabled>Attackers</ListGroup.Item>
-                {displayPlayers("attacker")}
-            </ListGroup.Item>
-        </ListGroup>
+            <ListGroup className={"team-selection-list"}>
+                <ListGroup.Item>
+                    <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
+                    {displayPlayers("goalkeeper")}
+                    <ListGroup.Item disabled>Defenders</ListGroup.Item>
+                    {displayPlayers("defender")}
+                    <ListGroup.Item disabled>Midfielders</ListGroup.Item>
+                    {displayPlayers("midfielder")}
+                    <ListGroup.Item disabled>Attackers</ListGroup.Item>
+                    {displayPlayers("attacker")}
+                </ListGroup.Item>
+            </ListGroup>
+
+        </div>
     </div>
   );
 };
