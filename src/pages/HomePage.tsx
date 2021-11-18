@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
 import {IPlayer} from "../interfaces/IPlayers";

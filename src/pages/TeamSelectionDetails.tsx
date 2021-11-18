@@ -4,7 +4,6 @@ import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 import {ITeamSelection} from "../interfaces/ITeamSelection";
 import TeamSelectionField from "../components/teamselection/TeamSelectionField";
-import {ErrorView} from "../components/ErrorView";
 
 const TeamSelectionDetails = () => {
     const {id} = useParams();
