@@ -34,3 +34,12 @@ export type TeamSelectionFieldProps = {
     midfielders: IPlayer[];
     attackers: IPlayer[];
 }
+
+export type TeamSelectionListProps = {
+    isGoalkeeperEmpty: boolean;
+    isDefenderEmpty: boolean;
+    isMidfielderEmpty: boolean;
+    isAttackerEmpty: boolean;
+    players: IPlayer[];
+    handleClickedPlayer: (player: IPlayer) => void;
+}

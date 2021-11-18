@@ -1,4 +1,4 @@
-import PlayerList from "../components/players/PlayerList";
+import PlayerList from "../components/players/list/PlayerList";
 
 const PlayersPage = () => {
   return (

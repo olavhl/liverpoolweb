@@ -1,7 +1,7 @@
 import {Modal} from "react-bootstrap";
 import {ModalForm} from "./ModalForm";
 import Button from "@restart/ui/Button";
-import {ModalProps} from "../../types/PropsType";
+import {ModalProps} from "../../../types/PropsType";
 
 export function PlayerModal(props: ModalProps) {
     return <Modal

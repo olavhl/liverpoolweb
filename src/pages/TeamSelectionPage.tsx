@@ -2,16 +2,16 @@ import React, {useContext, useEffect, useState} from "react";
 import TeamSelectionField from "../components/teamselection/TeamSelectionField";
 import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
-import {Button, ListGroup} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import {IPlayer} from "../interfaces/IPlayers";
 import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 import {ITeamSelection} from "../interfaces/ITeamSelection";
-
+import {TeamSelectionList} from "../components/teamselection/list/TeamSelectionList";
 
 const TeamSelectionPage = () => {
     const { players } = useContext(PlayerContext) as PlayerContextType;
-    const { teamSelections, addTeamSelection } = useContext(TeamSelectionContext) as TeamSelectionContextType;
+    const { addTeamSelection } = useContext(TeamSelectionContext) as TeamSelectionContextType;
     const [isNotReadyToSend, setIsNotReadyToSend] = useState(true)
 
     const initialPlayer = {
@@ -28,25 +28,13 @@ const TeamSelectionPage = () => {
     const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
     const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
 
-    console.log(teamSelections)
-
     useEffect(() => {
         if (!hasGoalkeeperEmptySpot(goalkeeper) && !hasArrayEmptySpots(defenders) && !hasArrayEmptySpots(midfielders) && !hasArrayEmptySpots(attackers)) {
             setIsNotReadyToSend(false)
         }
     }, [goalkeeper, defenders, midfielders, attackers])
 
-    const displayPlayers = (position: string) => {
-        return players.map((player:IPlayer, key) => {
-            if (player.position.toLocaleLowerCase() === position.toLocaleLowerCase()) {
-                return (
-                    <ListGroup.Item onClick={() => handleClickedPlayer(player)} action key={key}>{player.firstname} {player.lastname}</ListGroup.Item>
-                )
-            } else {
-                return ""
-            }
-        })
-    }
+
 
     const handleClickedPlayer = (player: IPlayer) => {
         let position = player.position;
@@ -133,20 +121,14 @@ const TeamSelectionPage = () => {
         <h1>Team Selection</h1>
         <p>Select the players you want for your team and send in!</p>
         <div className={"team-selection-page"}>
-            <TeamSelectionField goalkeeper={goalkeeper} defenders={defenders} midfielders={midfielders} attackers={attackers} />
+            <TeamSelectionField goalkeeper={goalkeeper} defenders={defenders} midfielders={midfielders}
+                                attackers={attackers}/>
 
-            <ListGroup className={"team-selection-list"}>
-                <ListGroup.Item>
-                    <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
-                    {hasGoalkeeperEmptySpot(goalkeeper) && displayPlayers("goalkeeper")}
-                    <ListGroup.Item disabled>Defenders</ListGroup.Item>
-                    {hasArrayEmptySpots(defenders) && displayPlayers("defender")}
-                    <ListGroup.Item disabled>Midfielders</ListGroup.Item>
-                    {hasArrayEmptySpots(midfielders) && displayPlayers("midfielder")}
-                    <ListGroup.Item disabled>Attackers</ListGroup.Item>
-                    {hasArrayEmptySpots(attackers) && displayPlayers("attacker")}
-                </ListGroup.Item>
-            </ListGroup>
+            <TeamSelectionList players={players} handleClickedPlayer={handleClickedPlayer}
+                isGoalkeeperEmpty={hasGoalkeeperEmptySpot(goalkeeper)}
+                               isDefenderEmpty={hasArrayEmptySpots(defenders)}
+                               isMidfielderEmpty={hasArrayEmptySpots(midfielders)}
+                               isAttackerEmpty={hasArrayEmptySpots(attackers)}/>
 
             <Button onClick={postNewTeamSelection} disabled={isNotReadyToSend}>Save Team</Button>
 

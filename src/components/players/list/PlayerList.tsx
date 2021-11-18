@@ -1,10 +1,10 @@
 import {FC, useContext, useState} from "react";
 import {Col, Row} from "react-bootstrap";
-import {PlayerContext} from "../../context/PlayerContext";
-import {IPlayer} from "../../interfaces/IPlayers";
-import {PlayerContextType} from "../../types/PlayerContextType";
+import {PlayerContext} from "../../../context/PlayerContext";
+import {IPlayer} from "../../../interfaces/IPlayers";
+import {PlayerContextType} from "../../../types/PlayerContextType";
 import PlayerItem from "./PlayerItem";
-import {PlayerModal} from "./PlayerModal";
+import {PlayerModal} from "../modal/PlayerModal";
 
 const PlayerList: FC = () => {
   const { players, deletePlayer, updatePlayer } = useContext(PlayerContext) as PlayerContextType;

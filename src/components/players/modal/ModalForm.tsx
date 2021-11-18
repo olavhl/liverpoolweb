@@ -1,9 +1,9 @@
 import {Form} from "react-bootstrap";
-import {ModalProps} from "../../types/PropsType";
+import {ModalProps} from "../../../types/PropsType";
 import {ChangeEvent, useEffect, useState} from "react";
-import {IPlayer} from "../../interfaces/IPlayers";
-import {ModalField} from "./modal/ModalField";
-import {RadioPositionButtons} from "./RadioPositionButtons";
+import {IPlayer} from "../../../interfaces/IPlayers";
+import {ModalField} from "./ModalField";
+import {RadioPositionButtons} from "../RadioPositionButtons";
 
 export function ModalForm(props: ModalProps) {
     const [updatedPlayer, setUpdatedPlayer] = useState<IPlayer>(props.player);
