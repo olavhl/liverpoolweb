@@ -2,14 +2,7 @@ import footballField from "../../assets/images/footballfield.png";
 import React, {FC} from "react";
 import TeamSelectionDefaultPlayer from "./TeamSelectionDefaultPlayer";
 import {IPlayer} from "../../interfaces/IPlayers";
-
-type TeamSelectionFieldProps = {
-        goalkeeper: IPlayer;
-        defenders: IPlayer[];
-        midfielders: IPlayer[];
-        attackers: IPlayer[];
-
-}
+import {TeamSelectionFieldProps} from "../../types/PropsType";
 
 const TeamSelectionField : FC<TeamSelectionFieldProps> = ({goalkeeper, defenders, midfielders, attackers} : TeamSelectionFieldProps) => {
 

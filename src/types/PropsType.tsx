@@ -27,3 +27,10 @@ export type ModalFieldProps = {
 export type TeamSelectionOverviewListProps = {
     teamSelections: ITeamSelection[];
 }
+
+export type TeamSelectionFieldProps = {
+    goalkeeper: IPlayer;
+    defenders: IPlayer[];
+    midfielders: IPlayer[];
+    attackers: IPlayer[];
+}
