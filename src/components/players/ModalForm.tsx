@@ -46,5 +46,6 @@ export function ModalForm(props: ModalProps) {
             <Form.Label>Position</Form.Label>
             <RadioPositionButtons selectRadioButton={handlePositionChange}/>
         </Form.Group>
+        <ModalField onChange={handleUpdate} placeHolder={props.player.country} name={"country"} label={"Country"} type={"text"} />
     </Form>;
 }

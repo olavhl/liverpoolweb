@@ -1,13 +1,14 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import TeamSelectionField from "../components/teamselection/TeamSelectionField";
 import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
-import {ListGroup} from "react-bootstrap";
+import {Button, ListGroup} from "react-bootstrap";
 import {IPlayer} from "../interfaces/IPlayers";
 
 
 const TeamSelectionPage = () => {
     const { players } = useContext(PlayerContext) as PlayerContextType;
+    const [isNotReadyToSend, setIsNotReadyToSend] = useState(true)
 
     const initialPlayer = {
         firstname: "",
@@ -23,7 +24,11 @@ const TeamSelectionPage = () => {
     const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
     const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
 
-
+    useEffect(() => {
+        if (!hasGoalkeeperEmptySpot(goalkeeper) && !hasArrayEmptySpots(defenders) && !hasArrayEmptySpots(midfielders) && !hasArrayEmptySpots(attackers)) {
+            setIsNotReadyToSend(false)
+        }
+    }, [goalkeeper, defenders, midfielders, attackers])
 
     const displayPlayers = (position: string) => {
         return players.map((player:IPlayer, key) => {
@@ -93,7 +98,7 @@ const TeamSelectionPage = () => {
 
     const hasArrayEmptySpots = (players: IPlayer[]) => {
         let playersCopy = [...players]
-        for (var i = 0; i < players.length; i++) {
+        for (let i = 0; i < players.length; i++) {
             if (playersCopy[i].firstname === "") {
                 return true
             }
@@ -101,8 +106,8 @@ const TeamSelectionPage = () => {
         return false;
     }
 
-    const hasGoalkeeperEmptySpot = () => {
-        return goalkeeper.firstname === "";
+    const hasGoalkeeperEmptySpot = (player: IPlayer) => {
+        return player.firstname === "";
     }
 
   return (
@@ -115,7 +120,7 @@ const TeamSelectionPage = () => {
             <ListGroup className={"team-selection-list"}>
                 <ListGroup.Item>
                     <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
-                    {hasGoalkeeperEmptySpot() && displayPlayers("goalkeeper")}
+                    {hasGoalkeeperEmptySpot(goalkeeper) && displayPlayers("goalkeeper")}
                     <ListGroup.Item disabled>Defenders</ListGroup.Item>
                     {hasArrayEmptySpots(defenders) && displayPlayers("defender")}
                     <ListGroup.Item disabled>Midfielders</ListGroup.Item>
@@ -124,6 +129,8 @@ const TeamSelectionPage = () => {
                     {hasArrayEmptySpots(attackers) && displayPlayers("attacker")}
                 </ListGroup.Item>
             </ListGroup>
+
+            <Button disabled={isNotReadyToSend}>Send Team</Button>
 
         </div>
     </div>
