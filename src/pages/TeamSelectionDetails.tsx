@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 import {ITeamSelection} from "../interfaces/ITeamSelection";
@@ -23,7 +23,11 @@ const TeamSelectionDetails = () => {
 
 
     return <>
-        <h1>Old Team</h1>
+        <h1>Team ID: {teamSelection?.id}</h1>
+        <Link to={"/teamselectionoverview"}>
+            Back
+        </Link>
+
         <div className={"team-selection-page"}>
         {teamSelection && <TeamSelectionField goalkeeper={teamSelection?.goalkeeper} defenders={teamSelection?.defenders}
                              midfielders={teamSelection?.midfielders} attackers={teamSelection?.attackers}/>}

@@ -124,14 +124,8 @@ const TeamSelectionPage = () => {
             attackers: attackers
         };
         addTeamSelection(newTeamSelection);
-        emptyPlayerField()
-    }
-
-    const emptyPlayerField = () => {
-        setGoalkeeper(initialPlayer)
-        setDefenders([initialPlayer, initialPlayer, initialPlayer, initialPlayer])
-        setMidfielders([initialPlayer, initialPlayer, initialPlayer])
-        setAttackers([initialPlayer, initialPlayer, initialPlayer])
+        // Reloading page to empty players as well as Reload data from DB
+        window.location.reload()
     }
 
   return (
@@ -154,7 +148,7 @@ const TeamSelectionPage = () => {
                 </ListGroup.Item>
             </ListGroup>
 
-            <Button onClick={postNewTeamSelection} disabled={isNotReadyToSend}>Send Team</Button>
+            <Button onClick={postNewTeamSelection} disabled={isNotReadyToSend}>Save Team</Button>
 
         </div>
     </div>
