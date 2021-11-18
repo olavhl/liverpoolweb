@@ -4,10 +4,13 @@ import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
 import {Button, ListGroup} from "react-bootstrap";
 import {IPlayer} from "../interfaces/IPlayers";
+import {TeamSelectionContext} from "../context/TeamSelectionContext";
+import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 
 
 const TeamSelectionPage = () => {
     const { players } = useContext(PlayerContext) as PlayerContextType;
+    const { teamSelections } = useContext(TeamSelectionContext) as TeamSelectionContextType;
     const [isNotReadyToSend, setIsNotReadyToSend] = useState(true)
 
     const initialPlayer = {
@@ -23,6 +26,8 @@ const TeamSelectionPage = () => {
     const [defenders, setDefenders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer, initialPlayer])
     const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
     const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
+
+    console.log(teamSelections)
 
     useEffect(() => {
         if (!hasGoalkeeperEmptySpot(goalkeeper) && !hasArrayEmptySpots(defenders) && !hasArrayEmptySpots(midfielders) && !hasArrayEmptySpots(attackers)) {
