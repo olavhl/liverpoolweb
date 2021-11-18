@@ -6,7 +6,9 @@ import {PlayerProps} from "../../../types/PropsType";
 
 const PlayerItem: FC<PlayerProps> = ({ player, handleClick }: PlayerProps) => {
   const clickedElement = (player: IPlayer) => {
-    handleClick(player);
+    if (handleClick){
+      handleClick(player);
+    }
   };
 
   return (
@@ -26,13 +28,13 @@ const PlayerItem: FC<PlayerProps> = ({ player, handleClick }: PlayerProps) => {
           Position: {player.position}
         </Card.Text>
 
-        <Button
-          className="card-btn"
-          type="button"
-          onClick={() => clickedElement(player)}
+        {handleClick && <Button
+            className="card-btn"
+            type="button"
+            onClick={() => clickedElement(player)}
         >
           Edit Player
-        </Button>
+        </Button>}
       </Card.Body>
     </Card>
   );

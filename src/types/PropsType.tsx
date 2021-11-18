@@ -13,7 +13,7 @@ export  type ModalProps = {
 
 export type PlayerProps = {
     player: IPlayer;
-    handleClick: (player: IPlayer) => void;
+    handleClick?: (player: IPlayer) => void;
 };
 
 export type ModalFieldProps = {
