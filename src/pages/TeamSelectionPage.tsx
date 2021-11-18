@@ -91,6 +91,20 @@ const TeamSelectionPage = () => {
         return alreadySelected
     }
 
+    const hasArrayEmptySpots = (players: IPlayer[]) => {
+        let playersCopy = [...players]
+        for (var i = 0; i < players.length; i++) {
+            if (playersCopy[i].firstname === "") {
+                return true
+            }
+        }
+        return false;
+    }
+
+    const hasGoalkeeperEmptySpot = () => {
+        return goalkeeper.firstname === "";
+    }
+
   return (
     <div>
         <h1>Team Selection</h1>
@@ -101,13 +115,13 @@ const TeamSelectionPage = () => {
             <ListGroup className={"team-selection-list"}>
                 <ListGroup.Item>
                     <ListGroup.Item disabled>Goalkeepers</ListGroup.Item>
-                    {displayPlayers("goalkeeper")}
+                    {hasGoalkeeperEmptySpot() && displayPlayers("goalkeeper")}
                     <ListGroup.Item disabled>Defenders</ListGroup.Item>
-                    {displayPlayers("defender")}
+                    {hasArrayEmptySpots(defenders) && displayPlayers("defender")}
                     <ListGroup.Item disabled>Midfielders</ListGroup.Item>
-                    {displayPlayers("midfielder")}
+                    {hasArrayEmptySpots(midfielders) && displayPlayers("midfielder")}
                     <ListGroup.Item disabled>Attackers</ListGroup.Item>
-                    {displayPlayers("attacker")}
+                    {hasArrayEmptySpots(attackers) && displayPlayers("attacker")}
                 </ListGroup.Item>
             </ListGroup>
 
