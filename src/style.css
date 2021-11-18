@@ -1,7 +1,27 @@
-.random-player {
+.home-container {
+  text-align: center;
+  margin-top: 10px;
+}
+.home-container .random-player-btn {
+  margin: 5vh;
+}
+.home-container .random-player {
   width: 40vh;
+  margin: auto;
+  opacity: 0;
+}
+.home-container .fade {
+  animation: fadeIn 1s ease both;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .modal-container {
   width: 50vw;
   max-width: 50vw;

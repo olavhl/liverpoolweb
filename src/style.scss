@@ -1,6 +1,25 @@
+.home-container {
+  text-align: center;
+  margin-top: 10px;
 
-.random-player {
-  width: 40vh;
+  .random-player-btn {
+    margin: 5vh;
+  }
+
+  .random-player {
+    width: 40vh;
+    margin: auto;
+    opacity: 0;
+  }
+
+  .fade {
+    animation: fadeIn 1s ease both;
+  }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
 }
 
 // ---- Modal ----
