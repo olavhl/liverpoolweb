@@ -34,6 +34,10 @@
   align-items: center;
   justify-content: center;
 }
+.modal-container .modal-body .player-modal-image {
+  max-width: 20vw;
+  max-height: 35vh;
+}
 .modal-container .modal-body .modal-text-container {
   display: flex;
   flex-direction: column;

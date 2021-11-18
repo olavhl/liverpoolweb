@@ -37,6 +37,11 @@
     align-items: center;
     justify-content: center;
 
+    .player-modal-image {
+      max-width: 20vw;
+      max-height: 35vh;
+    }
+
     .modal-text-container {
       display: flex;
       flex-direction: column;

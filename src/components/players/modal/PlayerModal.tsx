@@ -16,6 +16,7 @@ export function PlayerModal(props: ModalProps) {
             <img
                 src={`https://localhost:5001/images/${props.player.image}`}
                 alt={props.player.firstname}
+                className={"player-modal-image"}
             />
             <ModalForm player={props.player} onUpdatePlayer={props.onUpdatePlayer}/>
         </Modal.Body>
