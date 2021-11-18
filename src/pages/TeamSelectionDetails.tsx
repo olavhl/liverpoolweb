@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 import {ITeamSelection} from "../interfaces/ITeamSelection";
+import TeamSelectionField from "../components/teamselection/TeamSelectionField";
 
 const TeamSelectionDetails = () => {
     const {id} = useParams();
@@ -22,7 +23,11 @@ const TeamSelectionDetails = () => {
 
 
     return <>
-        <h1>{teamSelection?.goalkeeper.firstname}</h1>
+        <h1>Old Team</h1>
+        <div className={"team-selection-page"}>
+        {teamSelection && <TeamSelectionField goalkeeper={teamSelection?.goalkeeper} defenders={teamSelection?.defenders}
+                             midfielders={teamSelection?.midfielders} attackers={teamSelection?.attackers}/>}
+        </div>
     </>
 }
 
