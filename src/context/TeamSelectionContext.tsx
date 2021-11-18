@@ -23,12 +23,23 @@ export const TeamSelectionProvider: FC = ({children}) => {
         midfielders: [initialPlayer],
         attackers: [initialPlayer]
     }
-
+    const [teamError, setTeamError] = useState(true)
     const [teamSelections, setTeamSelections] = useState<ITeamSelection[]>([initialState])
 
     useEffect(() => {
         getTeamSelection()
     }, [])
+
+    useEffect(() => {
+        checkError()
+    }, [teamSelections])
+
+    const checkError = () => {
+        let teamSelectionCopy = [...teamSelections];
+        if (teamSelectionCopy[0].id !== "jup") {
+            setTeamError(false)
+        }
+    }
 
     const getTeamSelection = async () => {
         const result = await teamSelectionService.getAllTeamSelections();
@@ -46,7 +57,7 @@ export const TeamSelectionProvider: FC = ({children}) => {
 
     return (
         <>
-            <TeamSelectionContext.Provider value={{teamSelections, addTeamSelection, getTeamSelectionById}}>
+            <TeamSelectionContext.Provider value={{teamSelections, teamError, addTeamSelection, getTeamSelectionById}}>
                 {children}
             </TeamSelectionContext.Provider>
         </>

@@ -1,14 +1,19 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {PlayerContext} from "../context/PlayerContext";
 import {PlayerContextType} from "../types/PlayerContextType";
 import {IPlayer} from "../interfaces/IPlayers";
 import {Button} from "react-bootstrap";
 import {RandomPlayer} from "../components/players/RandomPlayer";
+import {ErrorView} from "../components/ErrorView";
 
 const Home = () => {
-    const {players} = useContext(PlayerContext) as PlayerContextType;
+    const {players, error} = useContext(PlayerContext) as PlayerContextType;
     const [randomPlayer, setRandomPlayer] = useState<IPlayer>()
     const [faded, setFaded] = useState(false)
+
+    if (error) {
+        return <ErrorView />
+    }
 
     // Creating variables to be able to use animations
     const fade = faded ? 'fade' : '';

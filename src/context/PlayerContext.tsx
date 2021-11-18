@@ -6,6 +6,7 @@ import { PlayerContextType } from "../types/PlayerContextType";
 export const PlayerContext = createContext<PlayerContextType | null>(null);
 
 export const PlayerProvider: FC = ({ children }) => {
+  const [error, setError] = useState(true)
   const [players, setPlayers] = useState<IPlayer[]>([
     {
       id: "jup",
@@ -21,6 +22,17 @@ export const PlayerProvider: FC = ({ children }) => {
   useEffect(() => {
     getPlayers();
   }, []);
+
+  useEffect(() => {
+    checkError()
+  }, [players])
+
+  const checkError = () => {
+    let playerCopy = [...players];
+    if (playerCopy[0].id !== "jup") {
+      setError(false)
+    }
+  }
 
   const getPlayers = async () => {
     const result = await playerService.getAllPlayers();
@@ -50,7 +62,7 @@ export const PlayerProvider: FC = ({ children }) => {
 
   return (
     <>
-      <PlayerContext.Provider value={{ players, addPlayer, deletePlayer, updatePlayer }}>
+      <PlayerContext.Provider value={{ players, addPlayer, deletePlayer, updatePlayer, error }}>
         {children}
       </PlayerContext.Provider>
     </>

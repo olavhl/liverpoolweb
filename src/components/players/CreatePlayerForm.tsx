@@ -4,9 +4,10 @@ import {PlayerContext} from "../../context/PlayerContext";
 import {IPlayer} from "../../interfaces/IPlayers";
 import {PlayerContextType} from "../../types/PlayerContextType";
 import {RadioPositionButtons} from "./RadioPositionButtons";
+import {ErrorView} from "../ErrorView";
 
 const CreatePlayerForm: FC = () => {
-  const { addPlayer } = useContext(PlayerContext) as PlayerContextType;
+  const { addPlayer, error } = useContext(PlayerContext) as PlayerContextType;
   const [validated, setValidated] = useState(false);
   const [newPlayer, setNewPlayer] = useState<IPlayer>({
     firstname: "",
@@ -17,6 +18,10 @@ const CreatePlayerForm: FC = () => {
     image: "",
   });
   const [newImage, setNewImage] = useState<File>();
+
+  if (error) {
+    return <ErrorView />
+  }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     let { name } = event.target;

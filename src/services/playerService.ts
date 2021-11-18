@@ -8,7 +8,6 @@ export const playerService = (function () {
 
   const getAllPlayers = async () => {
     const result = await axios.get<IPlayer[]>(urlToLiverpoolStatsController);
-
     return result["data"];
   };
 

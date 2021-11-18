@@ -5,9 +5,10 @@ import {IPlayer} from "../../../interfaces/IPlayers";
 import {PlayerContextType} from "../../../types/PlayerContextType";
 import PlayerItem from "./PlayerItem";
 import {PlayerModal} from "../modal/PlayerModal";
+import {ErrorView} from "../../ErrorView";
 
 const PlayerList: FC = () => {
-  const { players, deletePlayer, updatePlayer } = useContext(PlayerContext) as PlayerContextType;
+  const { players, deletePlayer, updatePlayer, error } = useContext(PlayerContext) as PlayerContextType;
   const [showModal, setShowModal] = useState(false);
   const [selectedPlayer, setSelectedPlayer] = useState<IPlayer>({
     firstname: "",
@@ -25,6 +26,10 @@ const PlayerList: FC = () => {
     position: "",
     image: "",
   });
+
+  if (error) {
+    return <ErrorView />
+  }
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);

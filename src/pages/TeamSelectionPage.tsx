@@ -8,10 +8,11 @@ import {TeamSelectionContext} from "../context/TeamSelectionContext";
 import {TeamSelectionContextType} from "../types/TeamSelectionContextType";
 import {ITeamSelection} from "../interfaces/ITeamSelection";
 import {TeamSelectionList} from "../components/teamselection/list/TeamSelectionList";
+import {ErrorView} from "../components/ErrorView";
 
 const TeamSelectionPage = () => {
-    const { players } = useContext(PlayerContext) as PlayerContextType;
-    const { addTeamSelection } = useContext(TeamSelectionContext) as TeamSelectionContextType;
+    const { players, error } = useContext(PlayerContext) as PlayerContextType;
+    const { addTeamSelection, teamError } = useContext(TeamSelectionContext) as TeamSelectionContextType;
     const [isNotReadyToSend, setIsNotReadyToSend] = useState(true)
 
     const initialPlayer = {
@@ -28,11 +29,21 @@ const TeamSelectionPage = () => {
     const [midfielders, setMidfielders] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
     const [attackers, setAttackers] = useState<IPlayer[]>([initialPlayer, initialPlayer, initialPlayer])
 
+
+    const hasGoalkeeperEmptySpot = (player: IPlayer) => {
+        return player.firstname === "";
+    }
+
     useEffect(() => {
         if (!hasGoalkeeperEmptySpot(goalkeeper) && !hasArrayEmptySpots(defenders) && !hasArrayEmptySpots(midfielders) && !hasArrayEmptySpots(attackers)) {
             setIsNotReadyToSend(false)
         }
     }, [goalkeeper, defenders, midfielders, attackers])
+
+    if (error || teamError) {
+        return <ErrorView />
+    }
+
 
     const handleClickedPlayer = (player: IPlayer) => {
         let position = player.position;
@@ -87,9 +98,6 @@ const TeamSelectionPage = () => {
         return false;
     }
 
-    const hasGoalkeeperEmptySpot = (player: IPlayer) => {
-        return player.firstname === "";
-    }
 
     const postNewTeamSelection = () => {
         let newTeamSelection: ITeamSelection = {
